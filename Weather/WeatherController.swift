@@ -56,12 +56,14 @@ class WeatherController: UIViewController, CLLocationManagerDelegate, ChangeCity
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
-        cityListFaves = defaults.stringArray(forKey: "Favorites")!
+        
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        cityListFaves = defaults.stringArray(forKey: "Favorites") ?? [String]()
+
         fade()
         
     }
